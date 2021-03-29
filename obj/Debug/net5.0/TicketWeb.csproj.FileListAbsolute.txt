@@ -1,0 +1,9 @@
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.csprojAssemblyReference.cache
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.GeneratedMSBuildEditorConfig.editorconfig
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.AssemblyInfoInputs.cache
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.AssemblyInfo.cs
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.csproj.CoreCompileInputs.cache
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.MvcApplicationPartsAssemblyInfo.cs
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.MvcApplicationPartsAssemblyInfo.cache
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.RazorAssemblyInfo.cache
+D:\Test\TicketWeb\obj\Debug\net5.0\TicketWeb.RazorAssemblyInfo.cs

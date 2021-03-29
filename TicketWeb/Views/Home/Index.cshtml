@@ -1,0 +1,318 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutPortal";
+}
+
+<div id="app">
+    <main class="main-wrap">
+        <div class="sidebar-left">
+            <a href="index.html" class="logo-collapse">
+                <img src="images/logo_ex.png" alt="">
+            </a>
+            <div class="nav-menu">
+                <ul class="menu-list">
+                    <li class="menu-item active">
+                        <a href="index.html" class="menu-link">
+                            <span class="icon">
+                                <img src="images/datve.svg" alt="" title="Đặt vé máy bay">
+                            </span>
+                            <span class="menu-text">Đặt vé máy bay</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="khuyen-mai.html" class="menu-link">
+                            <span class="icon">
+                                <img src="images/km.svg" alt="" title="Khuyến mại">
+                            </span>
+                            <span class="menu-text">Khuyến mãi</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="cam-nang.html" class="menu-link">
+                            <span class="icon">
+                                <img src="images/camnang.svg" alt="" title="Cẩm nang du lịch">
+                            </span>
+                            <span class="menu-text">Cẩm nang du lịch</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="thanh-toan.html" class="menu-link">
+                            <span class="icon">
+                                <img src="images/thanhtoan.svg" alt="" title="Thanh toán">
+                            </span>
+                            <span class="menu-text">Thanh toán</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="lien-he.html" class="menu-link">
+                            <span class="icon">
+                                <img src="images/lienhe.svg" alt="" title="Liên hệ">
+                            </span>
+                            <span class="menu-text">Liên hệ</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user_fix">
+                <div class="login">
+                    <a href="javascript:;" data-toggle="modal" data-target="#loginModal"
+                       class="d-flex align-items-center">
+                        <p class="ic_user">
+                            <img src="images/ic_user.png" alt="">
+                        </p>
+                        <span>Đăng nhập</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main-box container" style="background: url('https://www.airlinequality.com/wp-content/uploads/2019/06/about-us-image.jpg?fbclid=IwAR39T01wf_YdCKoJrvxRr-TuxF-0K859uLTFOuvvEOMTvFOWkyu9531ka3o');">
+            <div class="search-box" id="do-my-vue">
+                <div class="search-box-title">
+                    <h4>Đặt vé máy bay</h4>
+                </div>
+                <div class="search-box-content">
+                    <ul class="nav nav-pills mb-3" id="pills-tab">
+                        <li class="nav-item">
+                            <a class="tab-link active" id="return-tab" href="javascript:;" onclick="changeTrip()">
+                                Khứ
+                                hồi
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="tab-link" id="onway-tab" href="javascript:;" onclick="changeTrip(true)">
+                                Một
+                                chiều
+                            </a>
+                        </li>
+                    </ul>
+                    <form method="GET" action="https://olala.vn/search" accept-charset="UTF-8" id="home-search">
+                        <input type="hidden" name="type" v-model="type">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="return" role="tabpanel"
+                                 aria-labelledby="return-tab">
+                                <div class="box-flight d-flex flex-wrap">
+                                    <div class="d-flex city-box align-items-center">
+                                        <div class="city-box-item city-start" ref="city_start">
+                                            <span class="city-box-title">Chọn nơi xuất phát</span>
+                                            <div class="select-city" data-type="start">
+                                                <input type="text" class="input-city" id="keyboard_start"
+                                                       data-type="start" onfocus="focusSearch('city_start')"
+                                                       onkeyup="app.suggestAirport(this.value)">
+                                                <div class="holder" onclick="showCity('city_start')">
+                                                    <span class="city">Khu Vực</span>
+                                                    <span class="country">Quốc gia</span>
+                                                </div>
+                                                <div class="selected" onclick="showCity('city_start')">
+                                                    <span class="city" v-html="themeCity('start')"></span>
+                                                    <span class="country" v-html="themeCountry('start')"></span>
+                                                </div>
+                                                <input type="hidden" name="start" class="value" id="start"
+                                                       :value="cityCode('start')">
+                                            </div>
+                                            <div class="drop-list">
+                                                <ul class="city-list" id="suggest_start" v-show="showingSuggest()">
+                                                    <li v-for="item in suggest"
+                                                        :class="{'city-item': true, 'city-item-active': activeSuggest('start', item.value)}">
+                                                        <a href="#" class="link-item"
+                                                           onclick="choiceAirport('start', item.value)">
+                                                            <span class="city" v-text="item.label"></span>
+                                                            <span class="code-city" v-text="item.value"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="list-his" v-show="showingHistory()">
+                                                    <div class="title">
+                                                        <a href="javascript:;" class="del-his"
+                                                           onclick="clearHistory()">Xóa</a>
+                                                    </div>
+                                                    <ul>
+                                                        <li class="his-item" v-for="item in historyArr"
+                                                            style="cursor: pointer"
+                                                            onclick="loadHistory(item.start, item.end)">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="item-city">
+                                                                    <span class="city">
+                                                                        <span class="name"
+                                                                              v-text="item.start.city"></span> ({{
+                                                                            item.start.code }})
+                                                                    </span>
+                                                                    <br />
+                                                                    <span class="country"
+                                                                          v-text="item.start.country"></span>
+                                                                </div>
+                                                                <span><i class="fa fa-exchange"></i></span>
+                                                                <div class="item-city">
+                                                                    <span class="city">
+                                                                        <span class="name"
+                                                                              v-text="item.end.city"></span> ({{
+                                                                            item.end.code }})
+                                                                    </span>
+                                                                    <br />
+                                                                    <span class="country"
+                                                                          v-text="item.end.country"></span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="ic_flight-center pt-4">
+                                            <img src="images/ic_flight-gray.png"
+                                                 alt="">
+                                        </span>
+                                        <div class="city-box-item city-end" ref="city_end">
+                                            <span class="city-box-title">Chọn nơi đến</span>
+                                            <div class="select-city" data-type="end">
+                                                <input type="text" class="input-city" id="keyboard_end"
+                                                       data-type="end" onfocus="focusSearch('city_end')"
+                                                       onkeyup="app.suggestAirport(this.value)">
+                                                <div class="holder" onclick="showCity('city_end')">
+                                                    <span class="city">Khu Vực</span>
+                                                    <span class="country">Quốc gia</span>
+                                                </div>
+                                                <div class="selected" onclick="showCity('city_end')">
+                                                    <span class="city" v-html="themeCity('end')"></span>
+                                                    <span class="country" v-html="themeCountry('end')"></span>
+                                                </div>
+                                                <input type="hidden" name="destination" class="value" id="end"
+                                                       :value="cityCode('end')">
+                                            </div>
+                                            <div class="drop-list">
+                                                <ul class="city-list" id="suggest_end" v-show="showingSuggest()">
+                                                    <li v-for="item in suggest"
+                                                        :class="{'city-item': true, 'city-item-active': activeSuggest('end', item.value)}">
+                                                        <a href="#" class="link-item"
+                                                           onclick="choiceAirport('end', item.value)">
+                                                            <span class="city" v-text="item.label"></span>
+                                                            <span class="code-city" v-text="item.value"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="list-his" v-show="showingHistory()">
+                                                    <div class="title">
+                                                        <a href="javascript:;" class="del-his"
+                                                           onclick="clearHistory()">Xóa</a>
+                                                    </div>
+                                                    <ul>
+                                                        <li class="his-item" v-for="item in historyArr"
+                                                            style="cursor: pointer"
+                                                            onclick="loadHistory(item.start, item.end)">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="item-city">
+                                                                    <span class="city">
+                                                                        <span class="name"
+                                                                              v-text="item.start.city"></span> ({{
+                                                                            item.start.code }})
+                                                                    </span>
+                                                                    <br />
+                                                                    <span class="country"
+                                                                          v-text="item.start.country"></span>
+                                                                </div>
+                                                                <span><i class="fa fa-exchange"></i></span>
+                                                                <div class="item-city">
+                                                                    <span class="city">
+                                                                        <span class="name"
+                                                                              v-text="item.end.city"></span> ({{
+                                                                            item.end.code }})
+                                                                    </span>
+                                                                    <br />
+                                                                    <span class="country"
+                                                                          v-text="item.end.country"></span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-select-day">
+                                        <div class="d-flex align-items-center">
+                                            <div class="day-item">
+                                                <span class="box-title">ngày đi</span>
+                                                <div class="box-select d-flex flex-column-reverse">
+                                                    <span class="js-t2-cn" v-text="showDateName(start.time)"></span>
+                                                    <input type="text"
+                                                           class="content-date-input js-date-begin-show day-null p-0"
+                                                           placeholder="Chọn" v-model="start.time"
+                                                           name="departure_date">
+                                                    <input type="text"
+                                                           class="content-date-input js-date-begin day-null p-0"
+                                                           placeholder="Chọn" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <div class="day-item" v-show="!isOneWay">
+                                                <span class="box-title">ngày Về</span>
+                                                <div class="box-select d-flex flex-column-reverse">
+                                                    <span class="js-t2-cn" v-text="showDateName(end.time)"></span>
+                                                    <input type="text"
+                                                           class="content-date-input js-date-end-show day-null p-0"
+                                                           placeholder="Chọn" v-model="end.time" name="return_date">
+                                                    <input type="text"
+                                                           class="content-date-input js-date-end day-null p-0"
+                                                           placeholder="Chọn" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="count-box w-100">
+                                        <div class="d-flex">
+                                            <div class="count-item d-flex">
+                                                <div class="title-box">
+                                                    <span class="type">Người lớn</span>
+                                                    <span class="old">≥ 12 tuổi</span>
+                                                </div>
+                                                <div class="box-input">
+                                                    <span class="btn_change-val"
+                                                          onclick="changeNumber('adult', true)">-</span>
+                                                    <input type="text" v-model="adults" name="adults" id="adults"
+                                                           readonly>
+                                                    <span class="btn_change-val"
+                                                          onclick="changeNumber('adult')">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="count-item d-flex">
+                                                <div class="title-box">
+                                                    <span class="type">Trẻ em</span>
+                                                    <span class="old">2 < 12 tuổi</span>
+                                                </div>
+                                                <div class="box-input">
+                                                    <span class="btn_change-val"
+                                                          onclick="changeNumber('children', true)">-</span>
+                                                    <input type="text" v-model="children" name="children"
+                                                           id="children" readonly>
+                                                    <span class="btn_change-val"
+                                                          onclick="changeNumber('children')">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="count-item d-flex">
+                                                <div class="title-box">
+                                                    <span class="type">Trẻ em</span>
+                                                    <span class="old">
+                                                        < 2 tuổi
+                                                    </span>
+                                                </div>
+                                                <div class="box-input">
+                                                    <span class="btn_change-val"
+                                                          onclick="changeNumber('infant', true)">-</span>
+                                                    <input type="text" v-model="infant" name="infant" id="infant"
+                                                           readonly>
+                                                    <span class="btn_change-val"
+                                                          onclick="changeNumber('infant')">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="check_min-price d-flex align-items-center">
+                                                <input type="checkbox" class="input_check-price" id="" name="price">
+                                                <a href="javascript:;" class="btn_search" onclick="submit()">
+                                                    Tìm
+                                                    chuyến bay
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </form>
+                </div>
+            </div>
+            <div

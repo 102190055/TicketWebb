@@ -11,6 +11,7 @@ namespace TicketWeb
 {
     public class Program
     {
+        //ccccccccc
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -23,4 +24,5 @@ namespace TicketWeb
                     webBuilder.UseStartup<Startup>();
                 });
     }
+
 }

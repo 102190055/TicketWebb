@@ -9,8 +9,12 @@ using TicketWeb.Areas.Identity.Data;
 
 namespace TicketWeb.Data
 {
-    public class TicketWebContext : IdentityDbContext<TicketWebUser>
+    public partial class TicketWebContext : DbContext
     {
+        public TicketWebContext()
+        {
+
+        }
         public TicketWebContext(DbContextOptions<TicketWebContext> options)
             : base(options)
         {

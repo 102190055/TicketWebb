@@ -13,10 +13,10 @@ namespace TicketWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private TicketWebContext _dbContext;
+        //private readonly ILogger<HomeController> _logger;
+        //private TicketWebContext _dbContext;
 
-        public HomeController(TicketWebContext dbContext)
+        /*public HomeController(TicketWebContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -25,14 +25,14 @@ namespace TicketWeb.Controllers
         {
             _logger = logger;
         }
-
+        */
         public IActionResult Index()
         {
-            ViewBag.SanBay = _dbContext.SanBay.Select(x => new SelectListItem
-            {
-                Text = x.Name,
-                Value = x.Code
-            }).ToList();
+            //ViewBag.SanBay = _dbContext.SanBay.Select(x => new SelectListItem
+            //{
+            //   Text = x.Name,
+            //    Value = x.Code
+            //}).ToList();
             return View();
         }
 

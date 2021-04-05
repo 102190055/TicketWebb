@@ -9,22 +9,21 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Protocols;
 using TicketWeb.Areas.Identity.Data;
+using TicketWeb.Models;
 
 namespace TicketWeb.Data
 {
     public partial class TicketWebContext : IdentityDbContext<TicketWebUser>
     {
-        //public TicketWebContext()
-        //    : base("name=DefaultConnection")
-        //{
-
-        //}
         public TicketWebContext(DbContextOptions<TicketWebContext> options)
             : base(options)
         {
         }
         public DbSet<SanBay> SanBay { get; set; }
         public DbSet<ChuyenBay> ChuyenBays { get; set; }
+        public DbSet<LoaiVe> LoaiVe { get; set; }
+        public DbSet<MayBay> MayBay { get; set; }
+        public DbSet<VeMayBay> VeMayBay { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

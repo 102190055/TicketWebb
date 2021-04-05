@@ -41,16 +41,13 @@ namespace TicketWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ChuyenBay collection)
         {
-            try
+            if(ModelState.IsValid)
             {
                 _dbContext.ChuyenBays.Add(collection);
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            }           
+                return View();           
         }
 
         // GET: FlightController/Edit/5

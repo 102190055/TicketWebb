@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TicketWeb.Data
+namespace TicketWeb.Models
 {
-    public class SanBay
+    public class MayBay
     {
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
-        [Display(Name="ID")]
+        [Display(Name = "ID ")]
         public int ID { get; set; }
-        [Display(Name ="Code")]
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
-        public string Code { get; set; }
+        [Display(Name = "Code")]
+        public int Code { get; set; }
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
-        [Display(Name ="Tên sân bay")]
+        [Display(Name = "Tên máy bay")]
         public string Name { get; set; }
     }
 }

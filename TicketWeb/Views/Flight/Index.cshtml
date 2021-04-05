@@ -1,10 +1,15 @@
-﻿@model IEnumerable<TicketWeb.Data.ChuyenBay>
+﻿@{
+
+    Layout = "_LayoutPortal2";
+}
+@model IEnumerable<TicketWeb.Data.ChuyenBay>
+
 
 @{
-    ViewData["Title"] = "FlightIndex";
+    ViewData["Title"] = "Quản lí chuyến bay";
 }
 
-<h1>FlightIndex</h1>
+<h1>Quản lí chuyến bay</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -40,38 +45,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaChuyenBay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanBayDi_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SanBayDen_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThoiGianDuKienBay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoGhe_Hang1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoGhe_Hang2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MayBayID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaChuyenBay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanBayDi_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanBayDen_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThoiGianDuKienBay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoGhe_Hang1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoGhe_Hang2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MayBayID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

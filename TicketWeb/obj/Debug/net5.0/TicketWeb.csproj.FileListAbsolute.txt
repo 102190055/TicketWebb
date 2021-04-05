@@ -203,4 +203,8 @@ D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_Validat
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Shared\Components\MessagePage\Default.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Shared\_LayoutPortal.cshtml.g.cs
-D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\IndexFlight.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Index.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Role\_StatusMessage.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Role\_ViewImports.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Role\_ViewStart.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs

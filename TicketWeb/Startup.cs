@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,12 +33,11 @@ namespace TicketWeb
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
+            
             services.AddDefaultIdentity<TicketWebUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<TicketWebContext>();
             services.AddControllersWithViews();
-
-
             services.Configure<IdentityOptions>(options => {
                 // Thiết lập về Password
                 options.Password.RequireDigit = false; // Không bắt phải có số

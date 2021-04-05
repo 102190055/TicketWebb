@@ -1,28 +1,33 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using TicketWeb.Data;
+using TicketWeb.Models;
 
 namespace TicketWeb.Controllers
 {
+    //[Authorize(Roles = "admin")]
     public class FlightController : Controller
     {
-        // GET: FlightController
-        public ActionResult Index()
+        public TicketWebContext dbContext { get; set; }
+        public FlightController(TicketWebContext context)
         {
-            var listFlight = new TicketWebContext().ChuyenBays.ToList();
-            return View(listFlight);
+            dbContext = context;
         }
-
-        // GET: FlightController/Details/5
-        public ActionResult Details(int id)
+        // GET: FlightController
+        
+        public ActionResult Index()
         {
             return View();
         }
-
+        /*
         // GET: FlightController/Create
         public ActionResult Create()
         {
@@ -106,5 +111,7 @@ namespace TicketWeb.Controllers
                 return View();
             }
         }
+        */
+        
     }
 }

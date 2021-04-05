@@ -11,5 +11,5 @@ namespace TicketWeb.Areas.Identity.Data
     {
 
     }
-    
+
 }

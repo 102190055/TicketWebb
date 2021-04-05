@@ -14,12 +14,19 @@ namespace TicketWeb.Data
 {
     public partial class TicketWebContext : IdentityDbContext<TicketWebUser>
     {
+        //public TicketWebContext()
+        //    : base("name=DefaultConnection")
+        //{
+
+        //}
         public TicketWebContext(DbContextOptions<TicketWebContext> options)
             : base(options)
         {
         }
-        public virtual DbSet<SanBay> SanBay { get; set; }
-        public virtual DbSet<ChuyenBay> ChuyenBays { get; set; }
+        public DbSet<SanBay> SanBay { get; set; }
+        public DbSet<ChuyenBay> ChuyenBays { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
 

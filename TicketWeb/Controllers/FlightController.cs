@@ -16,18 +16,20 @@ namespace TicketWeb.Controllers
     //[Authorize(Roles = "admin")]
     public class FlightController : Controller
     {
-        public TicketWebContext dbContext { get; set; }
-        public FlightController(TicketWebContext context)
+        private TicketWebContext _dbContext;
+
+        public FlightController(TicketWebContext dbCOntext)
         {
-            dbContext = context;
+            _dbContext = dbCOntext;
         }
         // GET: FlightController
         
         public ActionResult Index()
         {
-            return View();
+            var listFlight = _dbContext.ChuyenBays.ToList();
+            return View(listFlight);
         }
-        /*
+
         // GET: FlightController/Create
         public ActionResult Create()
         {
@@ -41,9 +43,8 @@ namespace TicketWeb.Controllers
         {
             try
             {
-                var context = new TicketWebContext();
-                context.ChuyenBays.Add(collection);
-                context.SaveChanges();
+                _dbContext.ChuyenBays.Add(collection);
+                _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -55,8 +56,7 @@ namespace TicketWeb.Controllers
         // GET: FlightController/Edit/5
         public ActionResult Edit(int id)
         {
-            var context = new TicketWebContext();
-            var editing = context.ChuyenBays.Find(id);
+            var editing = _dbContext.ChuyenBays.Find(id);
             return View(editing);
         }
 
@@ -67,8 +67,7 @@ namespace TicketWeb.Controllers
         {
             try
             {
-                var context = new TicketWebContext();
-                var oldItem = context.ChuyenBays.Find(model.ID);
+                var oldItem = _dbContext.ChuyenBays.Find(model.ID);
                 oldItem.MaChuyenBay = model.MaChuyenBay;
                 oldItem.MayBayID = model.MayBayID;
                 oldItem.SanBayDen_ID = model.SanBayDen_ID;
@@ -76,7 +75,7 @@ namespace TicketWeb.Controllers
                 oldItem.SoGhe_Hang1 = model.SoGhe_Hang1;
                 oldItem.SoGhe_Hang2 = model.SoGhe_Hang2;
                 oldItem.ThoiGianDuKienBay = model.ThoiGianDuKienBay;
-                context.SaveChanges();
+                _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -88,22 +87,20 @@ namespace TicketWeb.Controllers
         // GET: FlightController/Delete/5
         public ActionResult Delete(int id)
         {
-            var context = new TicketWebContext();
-            var deleting = context.ChuyenBays.Find(id);
+            var deleting = _dbContext.ChuyenBays.Find(id);
             return View(deleting);
         }
 
         // POST: FlightController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id ,FormCollection collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                var context = new TicketWebContext();
-                var deleting = context.ChuyenBays.Find(id);
-                context.ChuyenBays.Remove(deleting);
-                context.SaveChanges();
+                var deleting = _dbContext.ChuyenBays.Find(id);
+                _dbContext.ChuyenBays.Remove(deleting);
+                _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -111,7 +108,7 @@ namespace TicketWeb.Controllers
                 return View();
             }
         }
-        */
-        
+
+
     }
 }

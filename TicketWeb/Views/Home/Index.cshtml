@@ -50,17 +50,24 @@
                     </li>
                 </ul>
             </div>
-            <div class="user_fix">
-                <div class="login">
-                    <a href="/Login" data-toggle="modal" data-target="#loginModal"
-                       class="d-flex align-items-center">
-                        <p class="ic_user">
-                            <img src="images/ic_user.png" alt="">
-                        </p>
-                        <span>Đăng nhập</span>
-                    </a>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="user_fix">
+                    <div class="login">
+                        <a href="/Login" data-toggle="modal" data-target="#loginModal"
+                           class="d-flex align-items-center">
+                            <p class="ic_user">
+                                <img src="images/ic_user.png" alt="">
+                            </p>
+                            <span>Đăng nhập</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            }
+            else
+            {
+
+            }
         </div>
         <style>
             body {

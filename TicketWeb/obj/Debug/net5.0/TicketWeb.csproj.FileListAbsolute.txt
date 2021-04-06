@@ -210,3 +210,5 @@ D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Role\_ViewS
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Shared\_LayoutPortal2.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Create.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Edit.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Delete.cshtml.g.cs

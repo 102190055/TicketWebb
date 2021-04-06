@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using TicketWeb.Data;
@@ -24,10 +25,58 @@ namespace TicketWeb.Controllers
         }
         // GET: FlightController
         
-        public ActionResult Index()
+        public ActionResult Index(string searchMaChuyenBay, string searchSanBayDen_ID, string searchSanBayDi_ID,string searchThoiGianDuKienBay,string searchSoGhe_Hang1,string searchSoGhe_Hang2,string searchMayBayID)
         {
-            var listFlight = _dbContext.ChuyenBays.ToList();
-            return View(listFlight);
+            var listFlight = _dbContext.ChuyenBays.AsQueryable();
+            if (!string.IsNullOrEmpty(searchMaChuyenBay))
+            {
+                listFlight = listFlight.Where(s => s.MaChuyenBay.StartsWith(searchMaChuyenBay));
+                //return View(listFlight.Where(s => s.MaChuyenBay.StartsWith(search)).ToList());
+            }
+
+            if(!string.IsNullOrEmpty(searchSanBayDen_ID))
+            {
+                listFlight = listFlight.Where(s => s.SanBayDen_ID.ToString() == searchSanBayDen_ID);
+                //return View(listFlight.Where(s => s.SanBayDi_ID.ToString() == search).ToList());
+            }
+
+            if (!string.IsNullOrEmpty(searchSanBayDi_ID))
+            {
+                listFlight = listFlight.Where(s => s.SanBayDi_ID.ToString() == searchSanBayDi_ID);
+                //return View(listFlight.Where(s => s.SanBayDen_ID.ToString() == search).ToList());
+            }
+
+            if (!string.IsNullOrEmpty(searchThoiGianDuKienBay))
+            {
+                CultureInfo enUS = new CultureInfo("en-US");
+                var ngayDuKien = DateTime.Now;
+                if (DateTime.TryParseExact(searchThoiGianDuKienBay, "dd/MM/yyyy", enUS, DateTimeStyles.None, out ngayDuKien))
+                {
+                    listFlight = listFlight.Where(s => s.ThoiGianDuKienBay.Date.Date >= ngayDuKien.Date && s.ThoiGianDuKienBay.Date.Date < ngayDuKien.Date.AddDays(1));
+                }
+                
+                //return View(listFlight.Where(s => s.ThoiGianDuKienBay.Date.ToString("dd/MM/yyyy") == search).ToList());
+            }
+
+            if (!string.IsNullOrEmpty(searchSoGhe_Hang1))
+            {
+                listFlight = listFlight.Where(s => s.SoGhe_Hang1.ToString() == searchSoGhe_Hang1);
+                //return View(listFlight.Where(s => s.SoGhe_Hang1.ToString() == search).ToList());
+            }
+
+            if (!string.IsNullOrEmpty(searchSoGhe_Hang2))
+            {
+                listFlight = listFlight.Where(s => s.SoGhe_Hang2.ToString() == searchSoGhe_Hang2);
+                //return View(listFlight.Where(s => s.SoGhe_Hang2.ToString() == search).ToList());
+            }
+
+            if (!string.IsNullOrEmpty(searchMayBayID))
+            {
+                listFlight = listFlight.Where(s => s.MayBayID.ToString() == searchMayBayID);
+                //return View(listFlight.Where(s => s.MayBayID.ToString() == search).ToList());
+            }
+
+            return View(listFlight.ToList());
         }
 
         // GET: FlightController/Create
@@ -91,21 +140,19 @@ namespace TicketWeb.Controllers
         // POST: FlightController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ChuyenBay collection)
         {
-            try
+            var deleting = _dbContext.ChuyenBays.Find(id);
+            if (deleting == null)
             {
-                var deleting = _dbContext.ChuyenBays.Find(id);
+                return View();
+            }
+            else
+            {
                 _dbContext.ChuyenBays.Remove(deleting);
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
         }
-
-
     }
 }

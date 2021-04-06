@@ -1,0 +1,19 @@
+﻿@{
+
+    Layout = "_LayoutPortal2";
+}
+@model TicketWeb.Data.ChuyenBay
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Bạn có chăc là muốn xóa chuyến bay này ?</h1>
+
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" id="ID" value="@Model.ID" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

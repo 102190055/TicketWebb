@@ -10,9 +10,30 @@
 }
 
 <h1>Quản lí chuyến bay</h1>
-
+<div style="text-align:center">
+    @using (Html.BeginForm("Index", "Flight"))
+    {
+        <b>Tìm kiếm theo: </b>
+        <label for="searchMaChuyenBay">Mã chuyến bay</label>
+        @Html.TextBox("searchMaChuyenBay")
+        <label for="searchSanBayDi_ID">ID-Sân bay đi</label>
+        @Html.TextBox("searchSanBayDi_ID")
+        <label for="searchSanBayDen_ID">ID-Sân bay đến</label>
+        @Html.TextBox("searchSanBayDen_ID")
+        <label for="searchThoiGianDuKienBay">Thời gian dự kiến bay</label>
+        @Html.TextBox("searchThoiGianDuKienBay")
+        <label for="searchSoGhe_Hang1">Số ghế hạng 1</label>
+        @Html.TextBox("searchSoGhe_Hang1")
+        <label for="searchSoGhe_Hang2">Số ghế hạng 2</label>
+        @Html.TextBox("searchSoGhe_Hang2")<br>
+        <label for="searchMayBayID">ID-Máy bay</label>
+        @Html.TextBox("searchMayBayID")
+        <input type="submit" value="Tìm" />
+        <button>Hủy tìm kiếm</button>
+    }
+</div>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Thêm chuyến bay</a>
 </p>
 <table class="table">
     <thead>
@@ -73,9 +94,8 @@
                     @Html.DisplayFor(modelItem => item.MayBayID)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>
         }

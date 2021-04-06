@@ -13,10 +13,10 @@ namespace TicketWeb.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MaChuyenBay = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaChuyenBay = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SanBayDi_ID = table.Column<int>(type: "int", nullable: false),
                     SanBayDen_ID = table.Column<int>(type: "int", nullable: false),
-                    ThoiGianDuKienBay = table.Column<int>(type: "int", nullable: false),
+                    ThoiGianDuKienBay = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SoGhe_Hang1 = table.Column<int>(type: "int", nullable: false),
                     SoGhe_Hang2 = table.Column<int>(type: "int", nullable: false),
                     MayBayID = table.Column<int>(type: "int", nullable: false)
@@ -24,6 +24,37 @@ namespace TicketWeb.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ChuyenBays", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LoaiVe",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ChuyenBay_ID = table.Column<int>(type: "int", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    Price_USD = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoaiVe", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MayBay",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MayBay", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,8 +77,8 @@ namespace TicketWeb.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,6 +108,25 @@ namespace TicketWeb.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VeMayBay",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ChuyenBay_ID = table.Column<int>(type: "int", nullable: false),
+                    Loaive_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TenKhach = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cmnd = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NgaySinh = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VeMayBay", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,6 +281,12 @@ namespace TicketWeb.Migrations
                 name: "ChuyenBays");
 
             migrationBuilder.DropTable(
+                name: "LoaiVe");
+
+            migrationBuilder.DropTable(
+                name: "MayBay");
+
+            migrationBuilder.DropTable(
                 name: "RoleClaims");
 
             migrationBuilder.DropTable(
@@ -247,6 +303,9 @@ namespace TicketWeb.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserTokens");
+
+            migrationBuilder.DropTable(
+                name: "VeMayBay");
 
             migrationBuilder.DropTable(
                 name: "Roles");

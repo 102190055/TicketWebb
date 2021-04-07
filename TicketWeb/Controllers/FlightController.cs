@@ -114,6 +114,7 @@ namespace TicketWeb.Controllers
             try
             {
                 var oldItem = _dbContext.ChuyenBays.Find(model.ID);
+                oldItem.ID = model.ID;
                 oldItem.MaChuyenBay = model.MaChuyenBay;
                 oldItem.MayBayID = model.MayBayID;
                 oldItem.SanBayDen_ID = model.SanBayDen_ID;
@@ -140,7 +141,7 @@ namespace TicketWeb.Controllers
         // POST: FlightController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, ChuyenBay collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
             var deleting = _dbContext.ChuyenBays.Find(id);
             if (deleting == null)

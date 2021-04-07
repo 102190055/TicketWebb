@@ -16,7 +16,7 @@ namespace TicketWeb.Models
         public int ChuyenBay_ID { get; set; }
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
         [Display(Name = "ID-Loại vé")]
-        public string Loaive_ID { get; set; }
+        public int Loaive_ID { get; set; }
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
         [Display(Name = "Tên Khách")]
         public string TenKhach { get; set; }
@@ -32,6 +32,9 @@ namespace TicketWeb.Models
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
         [Display(Name = "Email")]
         public string  Email { get; set; }
-        
+        [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
+        [Display(Name = "ID-Người đặt")]
+        public int NguoiDat_ID { get; set; }
+
     }
 }

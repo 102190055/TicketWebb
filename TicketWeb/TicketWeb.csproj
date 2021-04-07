@@ -26,7 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Views\MayBay\" />
+    <Folder Include="Views\VeMayBay\" />
+    <Folder Include="Views\SanBay\" />
   </ItemGroup>
 
 </Project>

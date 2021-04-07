@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TicketWeb.Data;
 
 namespace TicketWeb.Migrations
 {
     [DbContext(typeof(TicketWebContext))]
-    partial class TicketWebContextModelSnapshot : ModelSnapshot
+    [Migration("20210406151110_InitDb2")]
+    partial class InitDb2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -291,8 +293,11 @@ namespace TicketWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price_USD")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
@@ -341,9 +346,6 @@ namespace TicketWeb.Migrations
 
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("NguoiDat_ID")
-                        .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()

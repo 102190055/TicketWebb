@@ -22,9 +22,6 @@ namespace TicketWeb.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
         [Display(Name = "Giá vé")]
-        public int Price { get; set; }
-        [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
-        [Display(Name = "Giá vé USD")]
-        public int Price_USD { get; set; }
+        public decimal Price { get; set; }
     }
 }

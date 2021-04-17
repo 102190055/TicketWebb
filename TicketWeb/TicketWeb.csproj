@@ -25,10 +25,4 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\MayBay\" />
-    <Folder Include="Views\VeMayBay\" />
-    <Folder Include="Views\SanBay\" />
-  </ItemGroup>
-
 </Project>

@@ -214,3 +214,17 @@ D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Edit.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Delete.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Index.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Create.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Edit.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Delete.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Create.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Edit.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Delete.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\SanBay\Index.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\SanBay\Create.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\SanBay\Edit.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\SanBay\Delete.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Index.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\VeMayBay\Index.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\VeMayBay\Create.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\VeMayBay\Edit.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\VeMayBay\Delete.cshtml.g.cs

@@ -16,12 +16,12 @@ namespace TicketWeb.Areas.Admin.Pages.Role
         private readonly UserManager<AppUser> _userManager;
 
 
-        public AddUserRole(RoleManager<IdentityRole> roleManager,
+        /*public AddUserRole(RoleManager<IdentityRole> roleManager,
                             UserManager<AppUser> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
-        }
+        }*/
 
         public class InputModel
         {

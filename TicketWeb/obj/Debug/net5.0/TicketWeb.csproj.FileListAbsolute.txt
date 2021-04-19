@@ -458,3 +458,8 @@ C:\Users\ASUS\source\repos\PBL3\TicketWebb\TicketWebb\TicketWeb\obj\Debug\net5.0
 C:\Users\ASUS\source\repos\PBL3\TicketWebb\TicketWebb\TicketWeb\obj\Debug\net5.0\ref\TicketWeb.dll
 C:\Users\ASUS\source\repos\PBL3\TicketWebb\TicketWebb\TicketWeb\obj\Debug\net5.0\TicketWeb.pdb
 C:\Users\ASUS\source\repos\PBL3\TicketWebb\TicketWebb\TicketWeb\obj\Debug\net5.0\TicketWeb.genruntimeconfig.cache
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\Add.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\AddUserRole.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\Delete.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\User.cshtml.g.cs

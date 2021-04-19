@@ -1,5 +1,5 @@
 ﻿@{
-    
+
     Layout = "_LayoutPortal";
 }
 
@@ -105,9 +105,11 @@
                                     <div class="city-box-item city-start" ref="city_start">
                                         <span class="city-box-title">Chọn nơi xuất phát</span>
                                         <div class="select-city" data-type="start">
-                                            <input type="text" class="input-city" id="keyboard_start"
-                                                   data-type="start" onfocus="focusSearch('city_start')"
-                                                   onkeyup="app.suggestAirport(this.value)">
+                                            <select class="noixuatphat" asp-items="@ViewBag.SanBay">
+                                            </select>
+                                            @*<input type="text" class="input-city" id="keyboard_start"
+                                                data-type="start" onfocus="focusSearch('city_start')"
+                                                onkeyup="app.suggestAirport(this.value)">*@
                                             <div class="holder" onclick="showCity('city_start')">
                                                 <span class="city">Khu Vực</span>
                                                 <span class="country">Quốc gia</span>
@@ -329,6 +331,12 @@
         </div>
     </main>
 </div>
-            
-        
+
+@section Scripts {
+<script>
+    $('.noixuatphat').select2();
+</script>
+   
+
+}
 

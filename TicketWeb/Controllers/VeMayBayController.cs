@@ -60,7 +60,6 @@ namespace TicketWeb.Controllers
                 var oldItem = _dbContext.VeMayBay.Find(model.ID);
                 oldItem.ID = model.ID;
                 oldItem.ChuyenBay_ID = model.ChuyenBay_ID;
-                oldItem.Loaive_ID = model.Loaive_ID;
                 oldItem.TenKhach = model.TenKhach;
                 oldItem.Cmnd = model.Cmnd;
                 oldItem.NgaySinh = model.NgaySinh;

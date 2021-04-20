@@ -15,9 +15,6 @@ namespace TicketWeb.Models
         [Display(Name = "ID-Chuyến bay")]
         public int ChuyenBay_ID { get; set; }
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
-        [Display(Name = "ID-Loại vé")]
-        public int Loaive_ID { get; set; }
-        [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]
         [Display(Name = "Tên Khách")]
         public string TenKhach { get; set; }
         [Required(ErrorMessage = "Bạn cần điền thông tin vào đây")]

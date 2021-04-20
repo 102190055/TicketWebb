@@ -212,10 +212,6 @@ D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Shared\_LayoutPortal2.c
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Create.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Edit.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Flight\Delete.cshtml.g.cs
-D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Index.cshtml.g.cs
-D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Create.cshtml.g.cs
-D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Edit.cshtml.g.cs
-D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\LoaiVe\Delete.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Create.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Edit.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\MayBay\Delete.cshtml.g.cs

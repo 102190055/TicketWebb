@@ -21,7 +21,6 @@ namespace TicketWeb.Data
         }
         public DbSet<SanBay> SanBay { get; set; }
         public DbSet<ChuyenBay> ChuyenBays { get; set; }
-        public DbSet<LoaiVe> LoaiVe { get; set; }
         public DbSet<MayBay> MayBay { get; set; }
         public DbSet<VeMayBay> VeMayBay { get; set; }
 

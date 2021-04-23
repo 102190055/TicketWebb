@@ -16,18 +16,18 @@
         <b>Tìm kiếm theo: </b>
         <label for="searchMaChuyenBay">Mã chuyến bay</label>
         @Html.TextBox("searchMaChuyenBay")
-        <label for="searchSanBayDi_ID">ID-Sân bay đi</label>
-        @Html.TextBox("searchSanBayDi_ID")
-        <label for="searchSanBayDen_ID">ID-Sân bay đến</label>
-        @Html.TextBox("searchSanBayDen_ID")
+        <label for="searchSanBayDi_ID">Sân bay đi</label>
+        <select class="searchSanBayDi_ID" asp-items="@ViewBag.SanBayDi" name="searchSanBayDi_ID" id="searchSanBayDi_ID" style="width:200px;"></select>
+        <label for="searchSanBayDen_ID">Sân bay đến</label>
+        <select class="searchSanBayDen_ID" asp-items="@ViewBag.SanBayDen" name="searchSanBayDen_ID" id="searchSanBayDen_ID" style="width:200px;"></select>
         <label for="searchThoiGianDuKienBay">Thời gian dự kiến bay</label>
         @Html.TextBox("searchThoiGianDuKienBay")
         <label for="searchSoGhe_Hang1">Số ghế hạng 1</label>
         @Html.TextBox("searchSoGhe_Hang1")
         <label for="searchSoGhe_Hang2">Số ghế hạng 2</label>
         @Html.TextBox("searchSoGhe_Hang2")<br>
-        <label for="searchMayBayID">ID-Máy bay</label>
-        @Html.TextBox("searchMayBayID")
+        <label for="searchMayBayID">Máy bay</label>
+        <select class="searchMayBayID" asp-items="@ViewBag.MayBay" name="searchMayBayID" id="searchMayBayID" style="width:200px;"></select>
         <input type="submit" value="Tìm" />
         <button>Hủy tìm kiếm</button>
     }
@@ -101,3 +101,18 @@
         }
     </tbody>
 </table>
+
+
+@section Scripts {
+    <script>
+        $('.searchSanBayDi_ID').select2();
+    </script>
+    <script>
+        $('.searchSanBayDen_ID').select2();
+    </script>
+    <script>
+        $('.searchMayBayID').select2();
+    </script>
+
+
+}

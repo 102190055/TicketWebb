@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace TicketWeb.Controllers
         // GET: VeMayBayController/Create
         public ActionResult Create()
         {
+            var VeMayBaylist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var VeMayBaylist2 = _dbContext.ChuyenBays.Select(x => new SelectListItem
+            {
+                Text = x.ID.ToString(),
+                Value = x.ID.ToString()
+            }).ToList();
+            VeMayBaylist.AddRange(VeMayBaylist2);
+            ViewBag.ChuyenBay = VeMayBaylist;
             return View();
         }
 

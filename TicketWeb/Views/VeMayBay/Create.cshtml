@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ChuyenBay_ID" class="control-label"></label>
-                <input asp-for="ChuyenBay_ID" class="form-control" />
+                <select class="ChuyenBay_ID" asp-items="@ViewBag.ChuyenBay" name="ChuyenBay_ID" id="ChuyenBay_ID"></select>
                 <span asp-validation-for="ChuyenBay_ID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -66,5 +66,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $('.ChuyenBay_ID').select2();
+    </script>
 }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -27,6 +29,34 @@ namespace TicketWeb.Controllers
         
         public ActionResult Index(string searchMaChuyenBay, string searchSanBayDen_ID, string searchSanBayDi_ID,string searchThoiGianDuKienBay,string searchSoGhe_Hang1,string searchSoGhe_Hang2,string searchMayBayID)
         {
+            var SanBayDilist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDilist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text =  x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDilist.AddRange(SanBayDilist2);
+            ViewBag.SanBayDi = SanBayDilist;
+
+            var SanBayDenlist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDenlist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDenlist.AddRange(SanBayDenlist2);
+            ViewBag.SanBayDen = SanBayDenlist;
+
+            var Maybaylist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var Maybaylist2 = _dbContext.MayBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            Maybaylist.AddRange(Maybaylist2);
+            ViewBag.MayBay = Maybaylist;
+
+
             var listFlight = _dbContext.ChuyenBays.AsQueryable();
             if (!string.IsNullOrEmpty(searchMaChuyenBay))
             {
@@ -75,13 +105,38 @@ namespace TicketWeb.Controllers
                 listFlight = listFlight.Where(s => s.MayBayID.ToString() == searchMayBayID);
                 //return View(listFlight.Where(s => s.MayBayID.ToString() == search).ToList());
             }
-
             return View(listFlight.ToList());
         }
 
         // GET: FlightController/Create
         public ActionResult Create()
         {
+            var SanBayDilist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDilist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDilist.AddRange(SanBayDilist2);
+            ViewBag.SanBayDi = SanBayDilist;
+
+            var SanBayDenlist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDenlist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDenlist.AddRange(SanBayDenlist2);
+            ViewBag.SanBayDen = SanBayDenlist;
+
+            var Maybaylist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var Maybaylist2 = _dbContext.MayBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            Maybaylist.AddRange(Maybaylist2);
+            ViewBag.MayBay = Maybaylist;
             return View();
         }
 

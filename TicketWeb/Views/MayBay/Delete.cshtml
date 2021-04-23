@@ -1,6 +1,6 @@
 ﻿@{
 
-    Layout = "_LayoutPortal2";
+    Layout = "_LayoutPortal3";
 }
 @model TicketWeb.Models.MayBay
 
@@ -12,6 +12,7 @@
 
 <div>
     <form asp-action="Delete">
+        <input type="hidden" id="id" value="@Model.ID" />
         <input type="submit" value="Xóa" class="btn btn-danger" /> |
         <a asp-action="Index">Trở lại</a>
     </form>

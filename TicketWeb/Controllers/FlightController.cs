@@ -157,6 +157,33 @@ namespace TicketWeb.Controllers
         // GET: FlightController/Edit/5
         public ActionResult Edit(int id)
         {
+            var SanBayDilist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDilist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDilist.AddRange(SanBayDilist2);
+            ViewBag.SanBayDi = SanBayDilist;
+
+            var SanBayDenlist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDenlist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDenlist.AddRange(SanBayDenlist2);
+            ViewBag.SanBayDen = SanBayDenlist;
+
+            var Maybaylist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var Maybaylist2 = _dbContext.MayBay.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.ID.ToString()
+            }).ToList();
+            Maybaylist.AddRange(Maybaylist2);
+            ViewBag.MayBay = Maybaylist;
+
             var editing = _dbContext.ChuyenBays.Find(id);
             return View(editing);
         }

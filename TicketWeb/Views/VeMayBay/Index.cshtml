@@ -72,8 +72,8 @@
                     @Html.DisplayFor(modelItem => item.NguoiDat_ID)
                 </td>
                 <td>
-                    @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
                 </td>
             </tr>
         }

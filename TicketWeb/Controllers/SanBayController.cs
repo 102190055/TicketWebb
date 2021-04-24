@@ -46,7 +46,7 @@ namespace TicketWeb.Controllers
         public ActionResult Edit(int id)
         {
             var editing = _dbContext.SanBay.Find(id);
-            return View();
+            return View(editing);
         }
 
         // POST: SanBayController/Edit/5
@@ -73,7 +73,7 @@ namespace TicketWeb.Controllers
         public ActionResult Delete(int id)
         {
             var deleting = _dbContext.SanBay.Find(id);
-            return View();
+            return View(deleting);
         }
 
         // POST: SanBayController/Delete/5

@@ -55,6 +55,14 @@ namespace TicketWeb.Controllers
         // GET: VeMayBayController/Edit/5
         public ActionResult Edit(int id)
         {
+            var VeMayBaylist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var VeMayBaylist2 = _dbContext.ChuyenBays.Select(x => new SelectListItem
+            {
+                Text = x.ID.ToString(),
+                Value = x.ID.ToString()
+            }).ToList();
+            VeMayBaylist.AddRange(VeMayBaylist2);
+            ViewBag.ChuyenBay = VeMayBaylist;
             var editing = _dbContext.VeMayBay.Find(id);
             return View(editing);
         }
@@ -88,7 +96,7 @@ namespace TicketWeb.Controllers
         public ActionResult Delete(int id)
         {
             var deleting = _dbContext.VeMayBay.Find(id);
-            return View();
+            return View(deleting);
         }
 
         // POST: VeMayBayController/Delete/5

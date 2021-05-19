@@ -105,6 +105,10 @@ namespace TicketWeb.Controllers
                 listFlight = listFlight.Where(s => s.MayBayID.ToString() == searchMayBayID);
                 //return View(listFlight.Where(s => s.MayBayID.ToString() == search).ToList());
             }
+
+            //var model = new FlightIndexViewModel();
+            //model.CHuyenBayDi = listFlight.ToList();
+            //model.CHuyenBayVe = listFlight.ToList();
             return View(listFlight.ToList());
         }
 

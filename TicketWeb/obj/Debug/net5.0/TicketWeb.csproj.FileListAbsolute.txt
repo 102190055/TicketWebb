@@ -460,3 +460,4 @@ D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Role\User.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\SanBay\Delete.cshtml.g.cs
 D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\Shared\_LayoutPortal3.cshtml.g.cs
+D:\Test\TicketWeb\TicketWeb\obj\Debug\net5.0\Razor\Views\BookTicket\Index.cshtml.g.cs

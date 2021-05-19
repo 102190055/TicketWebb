@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TicketWeb.Data.ChuyenBay>
+
+@{
+    ViewData["Title"] = "BookTicket";
+    Layout = "_LayoutPortal3";
+}
+
+<h1>Đặt vé</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SanBayDi_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanBayDen_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianDuKienBay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SanBayDi_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SanBayDen_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianDuKienBay)
+            </td>    
+            <td>
+                <button>Chọn</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -30,16 +30,35 @@ namespace TicketWeb.Controllers
             _logger = logger;
         }
         */
-        public IActionResult Index()
+        public IActionResult Index(int start,int end)
         {
-            ViewBag.SanBay = _dbContext.SanBay.Select(x => new SelectListItem
+            var SanBayDilist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDilist2 = _dbContext.SanBay.Select(x => new SelectListItem
             {
-                Text = x.Code + " - " + x.Name,
+                Text = x.Name + "   / " + x.KhuVuc,
                 Value = x.ID.ToString()
             }).ToList();
+            SanBayDilist.AddRange(SanBayDilist2);
+            ViewBag.SanBayDi = SanBayDilist;
+
+            var SanBayDenlist = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
+            var SanBayDenlist2 = _dbContext.SanBay.Select(x => new SelectListItem
+            {
+                Text = x.Name + " / " +x.KhuVuc,
+                Value = x.ID.ToString()
+            }).ToList();
+            SanBayDenlist.AddRange(SanBayDenlist2);
+            ViewBag.SanBayDen = SanBayDenlist;
+
+            var listFlight = _dbContext.ChuyenBays.Where(s => s.SanBayDen_ID == start && s.SanBayDi_ID == end);
+            return View(listFlight.ToList());
+        }
+        
+        public IActionResult BookTicket()
+        {
+            
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
